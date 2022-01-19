@@ -219,7 +219,7 @@ input::placeholder {
 }
 
 .card-center p {
-    margin-top: 15 px;
+    margin-top: 20px;
 }
 
 .card-circle {
@@ -336,8 +336,8 @@ input::placeholder {
     background-color: #fff;
     width: 100%;
     max-width: 450px;
-    min-height: 45vh;
-    height: 400px;
+    min-height: 50vh;
+    height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: center;
