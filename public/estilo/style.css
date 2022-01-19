@@ -449,7 +449,7 @@ input {
     border: none;
     background-color: transparent;
     outline: none;
-    padding: 16px 0;
+    padding: 22px 0;
 }
 
 input {
@@ -690,6 +690,12 @@ footer p {
         text-align: center;
     }
 
+    .about .about-me p {
+        padding-left: 0;
+        text-align: center;
+        padding: 0 2%;
+    }
+
     .images {
         margin-top: 10px;
         padding-right: 2%;
@@ -791,8 +797,12 @@ footer p {
 
 }
 
+@media (max-width:483) {
+    .depoiments {
+        min-height: 65vh;
+    }
+}
 
-    
 @media (max-width: 377px) {
     #dif {
         display: none;
