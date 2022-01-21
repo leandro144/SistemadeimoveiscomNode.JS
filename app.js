@@ -2,8 +2,10 @@ const express = require('express');
 const nodemailer = require('nodemailer')
 const app = express();
 const process = require('process')
+const path = require('path')
 
 const exphbs  = require('express-handlebars');
+const res = require('express/lib/response');
 
 
 var handle = exphbs.create({
@@ -16,10 +18,34 @@ app.use(express.static('public'));
 app.engine('handlebars', handle.engine);
 app.set('view engine', 'handlebars');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8080
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+
+let login = "admin";
+let password = "12345";
+
+app.get('/login', (req,res) => {
+
+        res.sendFile(__dirname + '/public/login.html')
+})
+
+app.get('/logado', (req,res) => {
+
+    res.sendFile(__dirname + '/public/logado.html')
+})
+
+app.post('/', (req,res) => {
+    if(req.body.password == password && req.body.login == login){
+        //logado com sucesso!//
+
+        res.sendFile(__dirname + '/public/logado.html')
+    }else{
+        res.sendFile(__dirname + '/public/login.html')
+    }
+    
+})
 
 app.get('/cad', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
