@@ -18,8 +18,10 @@
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "firebase": "^9.6.1",
+    "mysql2": "^2.3.3",
     "nodemailer": "^6.7.2",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sequelize": "^6.13.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

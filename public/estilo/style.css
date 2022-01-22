@@ -43,10 +43,12 @@ nav ul {
     align-items: center;
 }
 
-nav ul li {
+nav ul li  {
     list-style-type: none;
     margin-left: 30px;
+    position: relative;
 }
+
 
 nav ul li a {
     color: #fff;
@@ -816,6 +818,10 @@ footer p {
 @media (max-width:483) {
     .depoiments {
         min-height: 65vh;
+    }
+
+    .form-login-flex {
+        padding: 0 2%;
     }
 }
 
