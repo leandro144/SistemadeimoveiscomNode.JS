@@ -758,7 +758,7 @@ footer p {
     .two,
     .three {
         background-color: #fff;
-        height: 5px;
+        height: 4px;
         width: 100%;
         margin: 6px auto;
         transition-duration: 0.3s;
@@ -777,7 +777,7 @@ footer p {
         left:0;
         
         width: 100vw;
-        height: 50vh;
+        height: 80vh;
 
         background-color: #171b27;
         
