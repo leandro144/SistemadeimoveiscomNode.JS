@@ -52,7 +52,8 @@ nav ul ul:hover ul {
     display: block;
     background-color: #171b27;
     padding: 20px;
-    position: absolute;     
+    position: absolute;
+    left: -8rem;
 }
 
 nav ul ul ul li{
@@ -822,7 +823,6 @@ footer p {
     }
 
     .menu-section.on nav ul ul:hover ul {
-        text-align: center;
         display: block;
     }
 
