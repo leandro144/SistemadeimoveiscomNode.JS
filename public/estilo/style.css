@@ -438,7 +438,7 @@ input::placeholder {
 }
 
 .footer .social-field.twitter {
-    background: linear-gradient(to right, #56a7f2, #468aca);
+    background: linear-gradient(to right, #feda75, #fa7e1e,#d62976,#962fbf,#4f5bd5);
     text-align: center;
     width: 70%;
     border-radius: 4px;
