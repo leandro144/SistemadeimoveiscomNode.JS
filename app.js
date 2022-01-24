@@ -79,7 +79,8 @@ app.post('/send', async (req, res) => {
     if (message) {
         res.send("Formulário enviado com sucesso");
     } else {
-        res.send('Formulário não enviado')
+        res.sendFile(__dirname + '/public/index.html')
+        alert('Formulário não enviado')
     }
 
 });

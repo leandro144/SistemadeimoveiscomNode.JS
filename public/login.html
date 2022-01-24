@@ -1,46 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <script src="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
+    <title>Login Form</title>
+    <link rel="stylesheet" href="estilo/css.css">
 </head>
-
-<style>
-    body{
-        background: linear-gradient(105deg, #90697b, #141646 40%, #2f2a60);
-        background-size: 100% 100%;
-        height: 100vh;
-    }
-
-    .caixa-login {
-        background-color: aqua;
-    }
-
-</style>
-
 <body>
+    <main class="container">
+        <h2>Login</h2>
+        <form action="/" method="post">
+            <div class="input-field">
+                <input type="text" name="login" id="login"
+                    placeholder="Usuário">
+                <div class="underline"></div>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" id="password"
+                    placeholder="Senha">
+                <div class="underline"></div>
+            </div>
 
-    <div class="caixa-login">
-        <div class="img-login">
-            <img src="" alt="">
-        </div>
-    </div>
-    <h2>Logar no sistema</h2>
-    <form action="/" method="post">
-        <div class="campo">
-            <input type="text" name="login" id="login">
-            <label>Usuário</label>
-        </div>
-        <div class="campo">
-            <input type="password" name="password" id="password">
-            <label>Senha</label>
-        </div>
-        <button id="btn-login">Entrar</button>
-    </form>
+            <input type="submit" value="Entrar">
+        </form>
 
+        <div class="footer">
+            <span>Siga-me nas Redes Socias</span>
+            <div class="social-fields">
+                <div class="social-field twitter">
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                        Siga pelo Twitter
+                    </a>
+                </div>
+                <div class="social-field facebook">
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i>
+                        Siga pelo Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
-
 </html>

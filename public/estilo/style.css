@@ -646,6 +646,10 @@ input:valid~label {
     object-fit: cover;
 }
 
+.imgbx img {
+    object-fit: cover;
+}
+
 .testimonialbox .details h3 {
     font-size: 1.6rem;
     font-weight: 400;
