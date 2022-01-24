@@ -172,12 +172,11 @@ input::placeholder {
 }
 
 .banner-filho {
-    max-width: 400px;
     margin: 0 auto;
     border-radius: 10px;
-    width: 22%;
-    height: 450px;
-    box-shadow: 8px -4px 8px 5px rgba(0, 0, 0, 0.08);
+    padding-left: 2rem;
+    width: 33%;
+    height: 50rem;
 }
 
 .banner-card {
@@ -241,15 +240,15 @@ input::placeholder {
 }
 
 .card-center h4 {
-    margin-top: 20px;
+    margin-top: 2em;
 }
 
 .card-center p {
-    margin-top: 20px;
+    margin-top: 1em;
 }
 
 .card-circle {
-    margin-top: 15px;
+    margin-top: 0,5em;
     display: flex;
     object-fit: cover;
 }
@@ -273,6 +272,7 @@ input::placeholder {
     margin: 0 auto;
     justify-content: space-between;
     position: relative;
+
 }
 
 .about-me {
@@ -285,7 +285,6 @@ input::placeholder {
 .about-me h1 {
     font-size: 3.5rem;
     line-height: 16.0rem;
-    height: auto;
     padding-left: 6%;
     color: #d8b345;
     font-family: 'Montserrat', sans-serif;
@@ -313,6 +312,7 @@ input::placeholder {
     text-decoration: none;
     color: #fff;
     background-color: #d8b345;
+    margin-bottom: 50px;
 }
 
 .images {
@@ -694,6 +694,7 @@ footer p {
     }
 }
 
+
 @media screen and (max-width: 768px) {
 
     html {
@@ -834,6 +835,19 @@ footer p {
         margin-top: 15px;
     }
 
+}
+
+@media (max-width:547px) {
+    .banner-img {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .banner-filho {
+        flex: 1 1 200px;
+        margin: 0 auto;
+        padding-left: 2rem;
+    }
 }
 
 @media (max-width:483) {
