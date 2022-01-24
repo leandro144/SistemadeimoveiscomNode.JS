@@ -161,8 +161,6 @@ input::placeholder {
     object-fit: cover;
 }
 
-
-
 .banner-img {
     display: flex;
     justify-content: space-around;
@@ -635,6 +633,7 @@ input:valid~label {
     height: 60px;
     overflow: hidden;
     overflow: hidden;
+    border-radius: 50%;
 }
 
 .testimonialbox .details .imgbx img {
@@ -755,6 +754,12 @@ footer p {
 
 }
 
+@media (max-width: 755px) {
+    .banner-filho {
+        padding-left: 0;
+    }
+}
+
 @media (max-width: 700px) {
     nav {
         display: none;
@@ -839,19 +844,6 @@ footer p {
         margin-top: 15px;
     }
 
-}
-
-@media (max-width:547px) {
-    .banner-img {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .banner-filho {
-        flex: 1 1 200px;
-        margin: 0 auto;
-        padding-left: 2rem;
-    }
 }
 
 @media (max-width:483) {
