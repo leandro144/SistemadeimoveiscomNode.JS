@@ -787,7 +787,7 @@ footer p {
         left:0;
         
         width: 100vw;
-        height: 90vh;
+        height: 100vh;
 
         background-color: #171b27;
         
@@ -833,6 +833,7 @@ footer p {
 
     .menu-section.on nav ul ul:hover ul {
         display: block;
+        left: -16rem;
     }
 
     .menu-section.on nav ul a{
