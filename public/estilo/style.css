@@ -43,19 +43,19 @@ nav ul {
     align-items: center;
 }
 
-nav ul ul {
+nav ul ul ul {
     display: none;
     text-align: center;
 }
 
-nav ul:hover ul {
+nav ul ul:hover ul {
     display: block;
     background-color: #171b27;
     padding: 20px;
     position: absolute;     
 }
 
-nav ul ul li{
+nav ul ul ul li{
     text-align: center;
     margin: 0 auto;
     padding-top: 10px;
@@ -815,13 +815,13 @@ footer p {
         display: block;
     }
 
-    .menu-section.on nav ul ul {
+    .menu-section.on nav ul ul ul{
         text-align: center;
         display: none;
         z-index: 1;
     }
 
-    .menu-section.on nav ul:hover ul {
+    .menu-section.on nav ul ul:hover ul {
         text-align: center;
         display: block;
     }
