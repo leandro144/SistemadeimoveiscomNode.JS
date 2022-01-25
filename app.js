@@ -1,10 +1,12 @@
 const express = require('express');
 const nodemailer = require('nodemailer')
 const app = express();
+const bcrypt = require('bcrypt');
 
 const process = require('process')
 const path = require('path')
 const db = require('./models/db')
+const User = require('./models/User')
 
 const exphbs = require('express-handlebars');
 const res = require('express/lib/response');
@@ -27,30 +29,33 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-let login = "admin";
-let password = "12345";
-
 app.get('/login', (req, res) => {
-
     res.sendFile(__dirname + '/public/login.html')
 })
 
-app.get('/logado', (req, res) => {
+// ENVIANDO OS DADOS PARA O BANCO DE DADOS //
+app.post('/cadastrar', async (req, res) => {
+    console.log(req.body);
+    let dados = req.body
+    dados.password = await bcrypt.hash(dados.password, 8);
 
-    res.sendFile(__dirname + '/public/logado.html')
+    console.log(dados);
+
+    await User.create(dados)
+    .then(() => {
+        return res.json ({
+            erro: false,
+            mensagem: "Usuario cadastrado com sucesso"
+        });
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: " Erro: Usuario não cadastrado com sucesso"
+        });
+    });
 })
 
-app.post('/', (req, res) => {
-    if (req.body.password == password && req.body.login == login) {
-        //logado com sucesso!//
-
-        res.sendFile(__dirname + '/public/logado.html')
-    } else {
-        res.sendFile(__dirname + '/public/login.html')
-    }
-
-})
-
+// ENVIO DE EMAIL PELO FORMULÁRIO //
 app.get('/cad', (req, res) => {
     res.sendFile(__dirname + '/public/index.html')
 })
