@@ -39,12 +39,12 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
     return res.json({titulo: "Como criar API"});
 })
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
-app.post('/cadastrar', async (req, res) => {
+app.post('/artigo', async (req, res) => {
     console.log(req.body)
     const artigo = Artigo.create(req.body, (err) => {
         if (err) return res.status(400).json({
