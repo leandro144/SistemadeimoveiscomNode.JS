@@ -40,7 +40,7 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 app.get('/login', (req, res) => {
-    return res.sendFile(__dirname + '/public/login.html')
+    return res.json({titulo: "Como criar API"});
 })
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
