@@ -57,6 +57,11 @@ nav ul ul:hover ul {
     left: -8rem;
 }
 
+nav ul .links:hover ul{
+    position: absolute;
+    left: -1rem;
+}
+
 nav ul ul ul li{
     text-align: center;
     margin: 0 auto;
@@ -835,6 +840,11 @@ footer p {
     .menu-section.on nav ul ul:hover ul {
         display: block;
         left: -16rem;
+    }
+
+    .menu-section.on nav ul .links:hover ul {
+        display: block;
+        left: -1rem;
     }
 
     .menu-section.on nav ul a{
