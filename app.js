@@ -2,15 +2,25 @@ const express = require('express');
 const nodemailer = require('nodemailer')
 const app = express();
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken')
 const process = require('process')
 const path = require('path')
-const db = require('./models/db')
-const User = require('./models/User')
+const mongoose = require('mongoose')
+
+require("./models/Artigo");
+const Artigo = mongoose.model('artigo')
+
+mongoose.connect('mongodb://localhost/leandro', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+    console.log("Conexão com MongoDB realizada com sucesso!");
+}).catch((erro) => {
+    console.log("Erro: Conexão com MongoDB não foi realizada com sucesso!");
+});
 
 const exphbs = require('express-handlebars');
 const res = require('express/lib/response');
-
 
 var handle = exphbs.create({
     defaultLayout: 'main'
@@ -30,30 +40,24 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/public/login.html')
+    return res.sendFile(__dirname + '/public/login.html')
 })
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/cadastrar', async (req, res) => {
-    console.log(req.body);
-    let dados = req.body
-    dados.password = await bcrypt.hash(dados.password, 8);
-
-    console.log(dados);
-
-    await User.create(dados)
-    .then(() => {
-        return res.json ({
-            erro: false,
-            mensagem: "Usuario cadastrado com sucesso"
+    console.log(req.body)
+    const artigo = Artigo.create(req.body, (err) => {
+        if (err) return res.status(400).json({
+            error: true,
+            message: "Error: Artigo não foi cadastrado com sucesso!"
         });
-    }).catch(() => {
-        return res.status(400).json({
-            erro: true,
-            mensagem: " Erro: Usuario não cadastrado com sucesso"
-        });
+    
+        return res.status(200).json({
+            error: false,
+            message: "Artigo cadastrado com sucesso!"
+        })
     });
-})
+});
 
 // ENVIO DE EMAIL PELO FORMULÁRIO //
 app.get('/cad', (req, res) => {
