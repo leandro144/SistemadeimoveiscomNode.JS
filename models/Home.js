@@ -42,6 +42,6 @@ const Home = db.define('homes', {
 
 });
 
-//ome.sync();
+
 
 module.exports = Home;

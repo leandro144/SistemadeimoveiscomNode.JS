@@ -66,6 +66,16 @@ app.get('/login', (req, res) => {
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
+<<<<<<< HEAD
+    console.log(req.body)
+     try {
+         const user = await Home.create(req.body)
+
+         return res.send({ user });
+     } catch (err) {
+         return res.status(400).send({ error : 'Falha no cadastro'});
+     }
+=======
    res.send(req.body);
    var nome = req.body.nome;
    var email = req.body.email;
@@ -79,6 +89,7 @@ app.post('/artigo', async (req, res) => {
     await Home.create(req.body);
    console.log(req.body);
 
+>>>>>>> 9cc2d6e9aede4e3159c54b206a662247f044bce4
 });
 
 // ENVIO DE EMAIL PELO FORMULÁRIO //
