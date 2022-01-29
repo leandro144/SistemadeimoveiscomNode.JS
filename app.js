@@ -26,6 +26,9 @@ const cors = require('cors');
 
 })();
 
+const Home = require('./models/Home');
+
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
