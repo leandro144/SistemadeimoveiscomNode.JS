@@ -33,7 +33,7 @@ module.exports = {selectCustomers, sendUsers};
 
 
 
-// Pode deletar se não for fazer mais dessa maneira 
+// Pode deletar, se não for fazer mais dessa maneira 
 
 
 

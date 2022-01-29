@@ -23,7 +23,7 @@ const cors = require('cors');
     // });
 
     // const clientes = await db.selectCustomers();
-    // console.log(clientes);
+
 })();
 
 const Home = require('./models/Home')
@@ -77,14 +77,6 @@ app.post('/artigo', async (req, res) => {
 
 //    AQUI DA ERRO "ReferenceError: db is not defined"... ENTÃO SE DER UM JEITO DO DB.SENDUSERS SER VISTO ai da certo...
     await Home.create(req.body);
-
-    // name: nome,
-    //     email: email,
-    //     telefone: telefone,
-    //     data_nascimento: data,
-    //     cidade: cidade,
-    //     estado: estado,
-    //     endereco: endereco
    console.log(req.body);
 
 });
