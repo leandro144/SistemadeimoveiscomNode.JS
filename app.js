@@ -5,26 +5,7 @@ const bcrypt = require('bcrypt');
 const process = require('process')
 const cors = require('cors');
 
-(async () => {
-
-
-    const db = require('./models/db')
-    
-    //SE COLOCAR OS DADOS NO CÓDIGO QUE ESTA COMENTADO ABAIXO OS DADOS VÃO PARA O BANCO DE DADOS 
-
-    // await db.sendUsers({
-    //     name: 'antonieta',
-    //     email: 'miltretas@teste.com.br',
-    //     telefone: '1999999-9999',
-    //     data_nascimento: '31/07/1989',
-    //     cidade: 'piracicaba',
-    //     estado: 'são paulo',
-    //     endereco: 'rua das amoras, 1000'
-    // });
-
-    // const clientes = await db.selectCustomers();
-    // console.log(clientes);
-})();
+const db = require('./models/db')
 
 const Home = require('./models/Home')
 
@@ -66,27 +47,14 @@ app.get('/login', (req, res) => {
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
-   res.send(req.body);
-   var nome = req.body.nome;
-   var email = req.body.email;
-   var telefone = req.body.telefone;
-   var data = req.body.data;
-   var cidade = req.body.cidade;
-   var estado = req.body.estado;
-   var endereco = req.body.endereco;
+    console.log(req.body)
+     try {
+         const user = await Home.create(req.body)
 
-//    AQUI DA ERRO "ReferenceError: db is not defined"... ENTÃO SE DER UM JEITO DO DB.SENDUSERS SER VISTO ai da certo...
-    await Home.create(req.body);
-
-    // name: nome,
-    //     email: email,
-    //     telefone: telefone,
-    //     data_nascimento: data,
-    //     cidade: cidade,
-    //     estado: estado,
-    //     endereco: endereco
-   console.log(req.body);
-
+         return res.send({ user });
+     } catch (err) {
+         return res.status(400).send({ error : 'Falha no cadastro'});
+     }
 });
 
 // ENVIO DE EMAIL PELO FORMULÁRIO //

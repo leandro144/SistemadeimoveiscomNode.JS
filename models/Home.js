@@ -37,18 +37,9 @@ const Home = db.define('homes', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    timestamps: false
-    // createdAt: {
-    //     type: Sequelize.STRING,
-    //     allowNull: false
-    // },
-    // updatedAt: {
-    //     type: Sequelize.STRING,
-    //     allowNull: false
-    // }
 
 });
 
-//ome.sync();
+
 
 module.exports = Home;
