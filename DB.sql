@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `celke`.`homes` (
   `estado` VARCHAR(255) NOT NULL,
   `endereco` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

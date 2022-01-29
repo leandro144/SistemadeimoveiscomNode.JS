@@ -66,7 +66,6 @@ app.get('/login', (req, res) => {
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
-<<<<<<< HEAD
     console.log(req.body)
      try {
          const user = await Home.create(req.body)
@@ -75,21 +74,6 @@ app.post('/artigo', async (req, res) => {
      } catch (err) {
          return res.status(400).send({ error : 'Falha no cadastro'});
      }
-=======
-   res.send(req.body);
-   var nome = req.body.nome;
-   var email = req.body.email;
-   var telefone = req.body.telefone;
-   var data = req.body.data;
-   var cidade = req.body.cidade;
-   var estado = req.body.estado;
-   var endereco = req.body.endereco;
-
-//    AQUI DA ERRO "ReferenceError: db is not defined"... ENTÃO SE DER UM JEITO DO DB.SENDUSERS SER VISTO ai da certo...
-    await Home.create(req.body);
-   console.log(req.body);
-
->>>>>>> 9cc2d6e9aede4e3159c54b206a662247f044bce4
 });
 
 // ENVIO DE EMAIL PELO FORMULÁRIO //
