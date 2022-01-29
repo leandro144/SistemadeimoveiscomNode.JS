@@ -1,12 +1,8 @@
 
 
-// Pode deletar se não for fazer mais dessa maneira 
-
-
-
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('celke', 'root', '', {
+const sequelize = new Sequelize('celke', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql',
     define: {
