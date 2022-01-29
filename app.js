@@ -23,7 +23,7 @@ const cors = require('cors');
     // });
 
     // const clientes = await db.selectCustomers();
-    // console.log(clientes);
+
 })();
 
 const Home = require('./models/Home')

@@ -38,14 +38,7 @@ const Home = db.define('homes', {
         allowNull: false
     },
     timestamps: false
-    // createdAt: {
-    //     type: Sequelize.STRING,
-    //     allowNull: false
-    // },
-    // updatedAt: {
-    //     type: Sequelize.STRING,
-    //     allowNull: false
-    // }
+    
 
 });
 
