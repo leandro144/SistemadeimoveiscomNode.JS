@@ -118,10 +118,11 @@ form input[type="submit"]:hover {
     margin-top: 1rem;
 }
 
-.footer span {
+.footer span,a {
     color: rgba(0, 0, 0, 0.7);
     font-size: 0.8rem;
     text-align: center;
+    text-decoration: none;
 }
 
 .footer .social-field {

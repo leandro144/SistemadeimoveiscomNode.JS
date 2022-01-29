@@ -2,21 +2,19 @@ const express = require('express');
 const nodemailer = require('nodemailer')
 const app = express();
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
 const process = require('process')
-const path = require('path')
-const mongoose = require('mongoose')
+const cors = require('cors');
 
-require("./models/Artigo");
-const Artigo = mongoose.model('artigo')
+const db = require('./models/db')
 
-mongoose.connect('mongodb://localhost/leandro', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-    console.log("Conexão com MongoDB realizada com sucesso!");
-}).catch((erro) => {
-    console.log("Erro: Conexão com MongoDB não foi realizada com sucesso!");
+const Home = require('./models/Home')
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
+    res.header("Acess-Control-Allow-Headers", "X-PINGOTHER, Content-Type, Authorization");
+    app.use(cors());
+    next();
 });
 
 const exphbs = require('express-handlebars');
@@ -39,24 +37,17 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    return res.json({titulo: "Como criar API"});
+app.get('/cadastrar', (req, res) => {
+    return res.sendFile(__dirname + '/public/cadastro.html')
+})
+
+app.get('/login', (req, res) => {
+    return res.sendFile(__dirname + '/public/login.html')
 })
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
-    console.log(req.body)
-    const artigo = Artigo.create(req.body, (err) => {
-        if (err) return res.status(400).json({
-            error: true,
-            message: "Error: Artigo não foi cadastrado com sucesso!"
-        });
-    
-        return res.status(200).json({
-            error: false,
-            message: "Artigo cadastrado com sucesso!"
-        })
-    });
+   res.send(req.body);
 });
 
 // ENVIO DE EMAIL PELO FORMULÁRIO //
