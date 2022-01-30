@@ -69,6 +69,12 @@ app.get('/login', (req, res) => {
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
     console.log(req.body)
+
+    const dados = (req.body)
+
+    dados.senha = await bcrypt.hash(dados.senha, 8);
+    console.log(dados)
+
      try {
          const user = await Home.create(req.body)
 
