@@ -26,6 +26,7 @@ const cors = require('cors');
 
 })();
 
+const Home = require('./models/Home');
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -71,6 +72,7 @@ app.post('/artigo', async (req, res) => {
 
          return res.send({ user });
      } catch (err) {
+         console.log(err);
          return res.status(400).send({ error : 'Falha no cadastro'});
      }
 });
