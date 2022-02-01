@@ -58,13 +58,29 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
+const UserLogin = [];
+
 app.get('/cadastrar', (req, res) => {
     return res.sendFile(__dirname + '/public/cadastro.html')
 })
 
-app.get('/login', (req, res) => {
-    return res.sendFile(__dirname + '/public/login.html')
-})
+app.post('/login', async (req, res) => {
+
+    const users = UserLogin.find(users => users.email === req.body.email);
+    if(users == null){
+        return res.status(400).send('não foi possivel encontrar usuário')
+    }
+    try{
+        if(await bcrypt.compare(req.body.senha, users.senha)) {
+            res.send("voce logou com sucesso")
+        } else {
+            res.send("não deu certo")
+        }
+    } catch {
+        res.status(500).send();
+    }
+
+});
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
