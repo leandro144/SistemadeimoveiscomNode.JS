@@ -64,6 +64,35 @@ app.get('/cadastrar', (req, res) => {
     return res.sendFile(__dirname + '/public/cadastro.html')
 })
 
+app.post('/login', async (req, res) => {
+
+    const users = await Home.findAll({
+        // ESCOLHER DADOS PARA RECUPERAR,
+        attributes: ['name','email','senha'],
+        where: {
+            // DADOS DO EMAIL QUE FOR DIGITADO NO FORMULÁRIO
+            email: `${req.body.name}`
+          }
+    });
+    console.log(users);
+   
+    console.log(req.body.name);
+
+    console.log(users[0].senha);
+    if(users == null){
+        return res.status(400).send('Usuário ou Senha Inválida!')
+    }
+    try{
+        if(await bcrypt.compare(req.body.password, users[0].senha)) {
+            return res.sendFile(__dirname + '/public/Imoveis.html');
+        } else {
+            res.send("Senha Inválida")
+        }
+    } catch {
+        res.status(500).send();
+    }
+
+});
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
