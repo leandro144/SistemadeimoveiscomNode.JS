@@ -64,23 +64,6 @@ app.get('/cadastrar', (req, res) => {
     return res.sendFile(__dirname + '/public/cadastro.html')
 })
 
-app.post('/login', async (req, res) => {
-
-    const users = UserLogin.find(users => users.email === req.body.email);
-    if(users == null){
-        return res.status(400).send('não foi possivel encontrar usuário')
-    }
-    try{
-        if(await bcrypt.compare(req.body.senha, users.senha)) {
-            res.send("voce logou com sucesso")
-        } else {
-            res.send("não deu certo")
-        }
-    } catch {
-        res.status(500).send();
-    }
-
-});
 
 // ENVIANDO OS DADOS PARA O BANCO DE DADOS //
 app.post('/artigo', async (req, res) => {
@@ -99,6 +82,38 @@ app.post('/artigo', async (req, res) => {
          console.log(err);
          return res.status(400).send({ error : 'Falha no cadastro'});
      }
+});
+
+
+app.post('/login', async (req, res) => {
+    const users = await Home.findAll({
+        // Aqui você escolhe os dados que quer recuperar,
+            // No caso estou trazendo o nome, email e senha
+        attributes: ['name','email','senha'],
+        where: {
+            // vai fazer os dados do email que for digitado no formulário
+            email: `${req.body.name}`
+          }
+    });
+    // Aqui vc ve todos os dados recuperados
+    console.log(users);
+    // Aqui você ve o email recuperado
+    console.log(req.body.name);
+    // Aqui vc ve a senha recuperada
+    console.log(users[0].senha);
+    if(users == null){
+        return res.status(400).send('não foi possivel encontrar usuário')
+    }
+    try{
+        if(await bcrypt.compare(req.body.password, users[0].senha)) {
+            res.send("voce logou com sucesso");
+        } else {
+            res.send("não deu certo")
+        }
+    } catch {
+        res.status(500).send();
+    }
+
 });
 
 // ENVIO DE EMAIL PELO FORMULÁRIO //
