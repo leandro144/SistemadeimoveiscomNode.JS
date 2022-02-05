@@ -7,7 +7,7 @@
 }
 
 body {
-    background: linear-gradient(to right, #1e3c72, #2a5298);
+    background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
     background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
@@ -96,7 +96,7 @@ form .input-field:first-child {
 
 form input[type="submit"] {
     margin-top: 2rem;
-    padding: 0.4rem;
+    padding: 0.6rem;
     width: 100%;
     background: linear-gradient(to left, #4776E6, #8e54e9);
     cursor: pointer;
@@ -120,7 +120,7 @@ form input[type="submit"]:hover {
 
 .footer span,a {
     color: rgba(0, 0, 0, 0.7);
-    font-size: 0.8rem;
+    font-size: 1.0rem;
     text-align: center;
     text-decoration: none;
 }
@@ -128,7 +128,7 @@ form input[type="submit"]:hover {
 .footer .social-field {
     padding: 0.4rem;
     border-radius: 4px;
-    font-size: 0.85rem;
+    font-size: 1.0rem;
     width: 100%;
     cursor: pointer;
     margin-top: 1rem;
@@ -146,8 +146,10 @@ form input[type="submit"]:hover {
 
 .footer .social-field.twitter {
     background: linear-gradient(to right, #feda75, #fa7e1e,#d62976,#962fbf,#4f5bd5);
+    padding: 0.6rem;
 }
 
 .footer .social-field.facebook {
     background: linear-gradient(to right, #1e3c72, #2a5298);
+    padding: 0.6rem;
 }

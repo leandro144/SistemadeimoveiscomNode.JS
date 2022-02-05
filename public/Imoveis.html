@@ -1,15 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/style.css">
-    <title>Enviado</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enviado</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      font-size: 1.6rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    header .container {
+      display: none;
+    }
+
+    header {
+      background-color: #171b27;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0px 5%;
+      width: 100%;
+      margin: auto;
+    }
+
+    /* menu mobile*/
+
+    .logo {
+      width: 230px;
+      height: 90px;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul ul ul {
+      display: none;
+      text-align: center;
+    }
+
+    nav ul ul:hover ul {
+      display: block;
+      background-color: #171b27;
+      padding: 20px;
+      position: absolute;
+      left: -8rem;
+    }
+
+    nav ul .links:hover ul {
+      position: absolute;
+      left: -1rem;
+    }
+
+    nav ul ul ul li {
+      text-align: center;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+
+    .mobile i {
+      color: #fff;
+      padding-left: 5px;
+      cursor: pointer;
+    }
+
+    nav ul li {
+      list-style-type: none;
+      margin-left: 30px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      line-height: 2.0rem;
+      font-family: 'Readex Pro', sans-serif;
+      font-weight: 400;
+    }
+
+    nav ul li a span {
+      color: #c6ae64;
+    }
+
+    nav ul li a:hover {
+      color: #c6ae64;
+    }
+
+    .desktop {
+      display: none;
+    }
+
+    input::placeholder {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .banner-img {
+      display: flex;
+      justify-content: space-around;
+      background-color: #f1f1f1;
+      padding: 50px;
+      margin: 0 auto;
+    }
+
+    .banner-filho {
+      margin: 0 auto;
+      border-radius: 10px;
+      padding-left: 2rem;
+      width: 33%;
+      height: 50rem;
+    }
+
+    .banner-card {
+      background-image: url('../imagens/images/casa2.jpg');
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      width: 100%;
+      height: 45%;
+    }
+
+    .banner-card1 {
+      background-image: url('../imagens/images/card-2.jpg');
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      width: 100%;
+      height: 45%;
+    }
+
+    .banner-card2 {
+      background-image: url('../imagens/images/card-3.jpg');
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      width: 100%;
+      height: 45%;
+    }
+
+    .banner-card3 {
+      background-image: url('../imagens/images/card-4.jpg');
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      width: 100%;
+      height: 45%;
+    }
+
+    .card-center {
+      margin: 0 auto;
+    }
+
+    .card-center #circle-purple {
+      background-color: green;
+      border-radius: 10px;
+      padding: 2px 10px;
+      color: #fff;
+      margin-top: 5px;
+    }
+
+    .card-center #circle-green {
+      background-color: rgb(23, 23, 90);
+      border-radius: 10px;
+      padding: 2px 10px;
+      color: #fff;
+    }
+
+    #circle-green,
+    #circle-purple {
+      position: relative;
+      top: 6px;
+    }
+
+    .card-center h4 {
+      margin-top: 2em;
+    }
+
+    .card-center p {
+      margin-top: 1em;
+    }
+
+    .card-circle {
+      margin-top: 0, 5em;
+      display: flex;
+      object-fit: cover;
+    }
+
+    #img-circle {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-top: 10px;
+      object-fit: cover;
+    }
+
+    .card-circle h5 {
+      margin-top: 20px;
+      margin-left: 5px;
+    }
+
+    .title {
+      font-weight: 600;
+      text-align: center;
+      font-size: 3.5rem;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .container {
+      border: 2px solid green;
+      width: 30vw;
+      height: 30vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width: 768px) {
+
+      html {
+        font-size: 62%;
+      }
+
+      .banner-img {
+        flex-direction: column;
+      }
+
+      .banner-filho {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .mySlides img {
+        width: 100%;
+        height: 50vh;
+      }
+
+      .about-me {
+        padding-left: 0;
+        text-align: center;
+      }
+
+      .about .about-me p {
+        padding-left: 0;
+        text-align: center;
+        padding: 0 2%;
+      }
+
+      .images {
+        margin-top: 10px;
+        padding-right: 2%;
+        padding-left: 2%;
+        justify-content: center;
+      }
+
+      .images img {
+        height: 85%;
+      }
+
+      .news {
+        padding: 0 2%;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      footer img {
+        margin-bottom: 20px;
+      }
+
+    }
+
+    @media (max-width: 755px) {
+      .banner-filho {
+        padding-left: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        display: none;
+      }
+
+      .one,
+      .two,
+      .three {
+        background-color: #fff;
+        height: 4px;
+        width: 100%;
+        margin: 6px auto;
+        transition-duration: 0.3s;
+      }
+
+      .menu-toggle {
+        width: 40px;
+        height: 30px;
+        margin-right: 20px;
+      }
+
+      /* fullscreen */
+      .menu-section.on {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-color: #171b27;
+
+        z-index: 10;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .menu-section.on nav {
+        display: block;
+      }
+
+      .menu-section.on .menu-toggle {
+        position: absolute;
+        right: 25px;
+        top: 15px;
+      }
+
+      .menu-section.on .menu-toggle .one {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      .menu-section.on .menu-toggle .two {
+        opacity: 0;
+      }
+
+      .menu-section.on .menu-toggle .three {
+        transform: rotate(-45deg) translate(8px, -9px);
+      }
+
+      .menu-section.on nav ul {
+        text-align: center;
+        display: block;
+      }
+
+      .menu-section.on nav ul ul ul {
+        text-align: center;
+        display: none;
+        z-index: 1;
+      }
+
+      .menu-section.on nav ul ul:hover ul {
+        display: block;
+        left: -16rem;
+      }
+
+      .menu-section.on nav ul .links:hover ul {
+        display: block;
+        left: -1rem;
+      }
+
+      .menu-section.on nav ul a {
+        transition-duration: 0.5s;
+        font-size: 1.6rem;
+        line-height: 4rem;
+        display: block;
+        margin-top: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1 style="text-align: center;">Imóveis</h1>
-    
+  <header>
+    <img src="imagens/images/logo seb png/logo seb png/logo seb png/logosemnada.png" class="logo">
+    <div class="header-container">
+      <div class="menu-section">
+        <div class="menu-toggle">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+        <nav>
+          <ul class="mobile">
+            <ul>
+              <li><a href="#depoiments">Serviços</a>
+                <i class="fas fa-caret-down"></i>
+                <ul>
+                  <li><a href="">
+                      <nobr>Assessoria em análise de crédito imobiliário</nobr>
+                    </a></li>
+                  <li><a href="">
+                      <nobr>Intermediação imobiliária</nobr>
+                    </a></li>
+                  <li><a href="">
+                      <nobr>Jurídico</nobr>
+                    </a></li>
+                  <li><a href="">
+                      <nobr>Requisição de certidões imobiliárias</nobr>
+                    </a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="links">
+              <li><a href="#">Liks Úteis</a>
+                <i class="fas fa-caret-down"></i>
+                <ul>
+                  <li><a href="https://www.crecisp.gov.br/">
+                      <nobr>Creci SP</nobr>
+                    </a></li>
+                  <li><a href="https://www.cofeci.gov.br/">
+                      <nobr>Cofeci</nobr>
+                    </a></li>
+                  <li><a href="https://www.procon.sp.gov.br/">
+                      <nobr>Procon</nobr>
+                    </a></li>
+                  <li><a href="https://www.ssp.sp.gov.br/">
+                      <nobr>SSP-SP</nobr>
+                    </a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <li><a href="#contato">Contato</a></li>
+            <li><a style="color: #c6ae64;" href="index.html">Menu Anterior</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <form action="/conta" method="post"></form>
+
+  <div class="title">Central de Imóveis</div>
+
+
+  <div class="container">
+    <div class="imoveis">
+      <h3>Nenhum imovel cadastrado no momento...</h3>
+    </div>
+  </div>
+
 </body>
+
 </html>

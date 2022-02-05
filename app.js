@@ -64,6 +64,7 @@ app.get('/cadastrar', (req, res) => {
     return res.sendFile(__dirname + '/public/cadastro.html')
 })
 
+
 app.post('/login', async (req, res) => {
 
     const users = await Home.findAll({
@@ -73,6 +74,7 @@ app.post('/login', async (req, res) => {
             // DADOS DO EMAIL QUE FOR DIGITADO NO FORMULÁRIO
             email: `${req.body.name}`
           }
+
     });
     console.log(users);
    
