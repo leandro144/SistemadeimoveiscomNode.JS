@@ -108,7 +108,7 @@ app.post('/artigo', async (req, res) => {
      try {
          const user = await Home.create(req.body)
 
-         return res.send({ user });
+         res.sendFile(__dirname + '/public/login.html')
      } catch (err) {
          console.log(err);
          return res.status(400).send({ error : 'Falha no cadastro'});
