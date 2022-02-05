@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const db = require('./db');
 
 const Home = db.define('homes', {
+    
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
