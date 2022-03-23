@@ -116,6 +116,7 @@ app.post('/artigo', async (req, res) => {
 });
 
 
+
 app.post('/login', async (req, res) => {
     const users = await Home.findAll({
         // Aqui você escolhe os dados que quer recuperar,
@@ -131,6 +132,7 @@ app.post('/login', async (req, res) => {
     // Aqui você ve o email recuperado
     console.log(req.body.name);
     // Aqui vc ve a senha recuperada
+    
     console.log(users[0].senha);
     if(users == null){
         return res.status(400).send('não foi possivel encontrar usuário')
